@@ -1,0 +1,22 @@
+{
+  "name": "rrkd/wechatsdk",
+  "description": "微信SDK实现",
+  "minimum-stability": "dev",
+  "keywords": [
+    "wechatsdk"
+  ],
+  "require": {
+    "php": ">=5.4.0"
+  },
+  "authors": [
+    {
+      "name": "alibeibei",
+      "email": "1939612669@qq.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "wechatsdk\\": "src"
+    }
+  }
+}
