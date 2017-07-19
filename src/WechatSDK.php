@@ -32,7 +32,7 @@ class WechatSDK
     }
 
     /**
-     *  销毁例子
+     *  销毁指定实例
      */
     public static function remove($key)
     {
@@ -43,4 +43,14 @@ class WechatSDK
         }
     }
 
+    /**
+     * 销毁容器内所有实例
+     */
+    public static function removeAll()
+    {
+        foreach (self::$instances as $key => $instance) {
+            unset($instance);
+            unset(self::$instances[$key]);
+        }
+    }
 }
