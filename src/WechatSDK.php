@@ -3,6 +3,7 @@
 namespace wechatsdk;
 
 /**
+ * 微信sdk封装
  * Created by PhpStorm.
  * User: xialiangyong
  * Date: 2017/7/10
@@ -10,20 +11,36 @@ namespace wechatsdk;
  */
 class WechatSDK
 {
+    private static $instances = [];
+
     /**
-     * 架构函数
-     * WechatSDK constructor.
+     * 获取实例
      */
-    public function __construct($config = [])
+    public static function getInstance($key, $params = [])
     {
-        if (empty($config)) {
-            throw new \Exception('请填写微信配置信息');
+        if (isset(self::$instances[$key])) {
+            return self::$instances[$key];
         }
-        if (!isset($config['appid'])) {
-            throw new \Exception('appid不能为空');
+        $className = '\\wechatsdk\\model\\' . $key;
+        if ($params) {
+            $instance = new $className($params);
+        } else {
+            $instance = new $className();
         }
-        if (!isset($config['appsecret'])) {
-            throw new \Exception('appsecret不能为空');
+        self::$instances[$key] = $instance;
+        return $instance;
+    }
+
+    /**
+     *  销毁例子
+     */
+    public static function remove($key)
+    {
+        if (isset(self::$instances[$key])) {
+            $instance = self::$instances[$key];
+            unset($instance);
+            unset(self::$instances[$key]);
         }
     }
+
 }
