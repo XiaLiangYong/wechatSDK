@@ -1,13 +1,10 @@
 {
-  "name": "rrkd/wechatsdk",
+  "name": "alibeibei/wechatSDK",
   "description": "微信SDK实现",
   "minimum-stability": "dev",
   "keywords": [
-    "wechatsdk"
+    "wechatSDK"
   ],
-  "require": {
-    "php": ">=5.4.0"
-  },
   "authors": [
     {
       "name": "alibeibei",
